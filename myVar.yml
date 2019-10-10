@@ -1,0 +1,21 @@
+---
+
+vpn_host: "VPNHostIP"
+port: "Port"
+vpn_usr: "VPNUserName"
+vpn_pwd: "VPNPassword"
+
+mailServer: "MailServerIP or DomainName"
+mail_to: 'person1.domain.cim, person2.domain.com, person3.domain.com'
+mail_cc: 'exmaple.domain.com '
+
+FirstHostIP: 'localhost'
+FirstHostUsr: 'UserName'
+FirstHostPwd: 'Password'
+SecHostUsr: 'UserName'
+SecHostPwd: 'Password'
+Serial: 'ModemIP'
+commands: 
+  - "command1"
+  - "command2"
+...

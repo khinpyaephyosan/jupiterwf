@@ -1,0 +1,5 @@
+---
+    - name: kill forticlient_connect.sh
+      command: kill -9 $(ps -aux | grep forticlient)
+      ignore_errors: True
+...

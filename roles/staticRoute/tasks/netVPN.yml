@@ -1,0 +1,6 @@
+---
+    - name: connect forticlient VPN
+      command: "bash /files/forticlient_connect.sh {{ vpn_host }}:{{ port }} {{ vpn_usr }} {{ vpn_pwd }}"
+      async: 600
+      poll: 0
+...

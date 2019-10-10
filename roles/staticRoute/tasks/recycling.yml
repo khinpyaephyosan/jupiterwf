@@ -1,0 +1,14 @@
+---
+    - name: remove rout_check
+      file:
+        path: "/files/routecheck.txt"
+        state: absent
+      ignore_errors: True
+
+    - name: remove route_include
+      file:
+        file: "/files/commandcheck.txt"
+        state: absent
+      ignore_errors: True
+...
+

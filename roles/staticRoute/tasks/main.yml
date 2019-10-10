@@ -1,0 +1,19 @@
+---
+# tasks file for roles/staticRoute
+
+   - name: Include netVPN.yml
+     include_tasks: netVPN.yml
+
+   - name: Include pushCommand.yml
+     include_tasks: pushCommand.yml
+
+   - name: Include reportMail.yml
+     include_tasks: reportMail.yml
+   
+   - name: Include cutVPN.yml
+     include_tasks: cutVPN.yml
+  
+   - name: Include recycling.yml
+     include_tasks: recycling.yml
+   
+...

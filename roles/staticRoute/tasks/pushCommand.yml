@@ -1,0 +1,44 @@
+---
+    - name: "push route -n "
+      jupiter_netme:
+        commands:
+           - "ip a s"
+        first_host_ip: "{{ FirstHostIP }}"
+        first_host_usr: "{{ FirstHostUsr }}"
+        first_host_pass: "{{ FirstHostPwd }}"
+        sec_host_ip: "esn{{ Serial }}.terminal.jupiterhts.net"
+        sec_host_usr: "{{ SecHostUsr }}"
+        sec_host_pass: "{{ SecHostPwd }}"
+      register: rout_check
+      ignore_errors: True
+     
+    - name: save rout_check
+      copy:
+        content: "{{ rout_check.original_message }}"
+        dest: "/files/routecheck.txt"
+      ignore_errors: True
+
+    - name: push actual command to modem
+      jupiter_netme:
+        commands: "{{ commands }}"
+        first_host_ip: "{{ FirstHostIP }}"
+        first_host_usr: "{{ FirstHostUsr }}"
+        first_host_pass: "{{ FirstHostPwd }}"
+        sec_host_ip: "esn{{ Serial }}.terminal.jupiterhts.net"
+        sec_host_usr: "{{ SecHostUsr }}"
+        sec_host_pass: "{{ SecHostPwd }}"
+      register: command_check
+      when: 
+        - "'127.0.0.1' not in rout_check.original_message" 
+        - "'127.0.0.1' not in rout_check.original_message"
+      ignore_errors: True 
+
+    - name: save command_check
+      copy:
+        content: "{{ command_check.original_message }}"
+        dest: "/files/commandcheck.txt"
+      when: route_include.stdout[0] == ""
+      ignore_errors: True
+
+...
+        

@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  remote_user: ansible
+  vars_file:
+    - myVar.yml
+  roles:
+    - roles/staticRoute

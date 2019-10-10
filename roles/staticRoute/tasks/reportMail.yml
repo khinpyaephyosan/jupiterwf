@@ -1,0 +1,14 @@
+---
+    - name: sent mail
+      mail:
+        host: "{{ mailServer }}"
+        subject: "Adding Static Route Report"
+        body: "This is report for adding static route" 
+        from: "{{ hostMail }}"
+        to: "{{ mail_to }}"
+        cc: "{{ mail_cc }}"
+        attach: 
+           - "/files/routecheck.txt"
+           - "/files/commandcheck.txt"
+...
+      
